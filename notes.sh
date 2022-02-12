@@ -198,3 +198,22 @@ docker stop cbbb33d3908b872291e8e8aa1cb92f1ba2ae336c5ea94b0bc37fd881f797f82b    
 #docker stop vs docker kill
 #STOP - gives a sigterm to process, so the process can do some clean up. If, in 10 sec process does not die, docker itself issues a kill command
 #KILL - kills the parent process
+
+
+
+
+docker run redis
+docker exec -it adabcfcafa00 redis-cli                                                                                                                                      ✔
+# 127.0.0.1:6379> exit
+
+
+# -it is short for --interactive + --tty. When you docker run with this command it takes you straight inside the container.
+# without -t, we won't see the terminal prompt
+# without -i, the shell will not be interactive
+# -d is short for --detach, which means you just run the container and then detach from it. Essentially, you run container in the background.
+
+# So if you run the Docker container with -itd, it runs both the -it options and detaches you from the container.
+# As a result, your container will still be running in the background even without any default app to run.
+
+docker run -it redis sh
+# This will just open the shell and will not run the redis server
