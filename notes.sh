@@ -216,4 +216,28 @@ docker exec -it adabcfcafa00 redis-cli                                          
 # As a result, your container will still be running in the background even without any default app to run.
 
 docker run -it redis sh
-# This will just open the shell and will not run the redis server
+# This will just open the shell and will not run the redis server  
+
+# restart policy
+# Flag    Description
+# no  Do not automatically restart the container. (the default)
+# on-failure[:max-retries]    Restart the container if it exits due to an error, which manifests as a non-zero exit code. Optionally, limit the number of times the Docker daemon attempts to restart the container using the :max-retries option.
+# always  Always restart the container if it stops. If it is manually stopped, it is restarted only when Docker daemon restarts or the container itself is manually restarted. (See the second bullet listed in restart policy details)
+# unless-stopped  Similar to always, except that when the container is stopped (manually or otherwise), it is not restarted even after Docker daemon restarts.
+
+
+docker-compose up --build
+# build the service using dockerfile and run the services
+
+docker-compose up --build -d
+# detached mode
+
+
+
+docker-compose ps                                           
+#         Name                       Command               State           Ports         
+# ---------------------------------------------------------------------------------------
+# visits_node-app_1       docker-entrypoint.sh npm start   Up      0.0.0.0:4001->8081/tcp
+# visits_redis-server_1   docker-entrypoint.sh redis ...   Up      6379/tcp   
+# 
+# Get status of docker containers related to docker-compose files

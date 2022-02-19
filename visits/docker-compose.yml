@@ -1,0 +1,12 @@
+version: '3'
+
+# these will be cerated on the same network
+#  service means a type of container
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "4001:8081" #local:container
