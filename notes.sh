@@ -81,7 +81,7 @@ docker start hello-world                                                        
 # Error response from daemon: No such container: hello-world
 # Error: failed to start containers: hello-world
 # 
-# docker run = docker create + docker run
+# docker run = docker create + docker start
 
 docker start 5e76db9695adf90e5e67c7156e039a3578095ba6837568de09f0f6a901921e22                                                                  1 ↵
 # 5e76db9695adf90e5e67c7156e039a3578095ba6837568de09f0f6a901921e22
@@ -241,3 +241,11 @@ docker-compose ps
 # visits_redis-server_1   docker-entrypoint.sh redis ...   Up      6379/tcp   
 # 
 # Get status of docker containers related to docker-compose files
+
+
+
+docker build -f Dockerfile.dev   
+# Use -f to specify a custom file
+
+docker run -it -p 3000:3000 -v /app/node_modules  -v $(pwd):/app a52b26585f412a6dc0297f75c040e276901689db0999c99a86dfc8
+# use -v to set up docker volume so you can change things live
