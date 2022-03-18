@@ -249,3 +249,5 @@ docker build -f Dockerfile.dev
 
 docker run -it -p 3000:3000 -v /app/node_modules  -v $(pwd):/app a52b26585f412a6dc0297f75c040e276901689db0999c99a86dfc8
 # use -v to set up docker volume so you can change things live
+
+
